@@ -2,8 +2,6 @@ package ua.lviv.iot.DAO.implementation;
 
 import ua.lviv.iot.DAO.VacancyInfoDAO;
 import ua.lviv.iot.connectionProperty.ConnectionManager;
-import ua.lviv.iot.model.LanguageEntity;
-import ua.lviv.iot.model.LevelOfExperienceEntity;
 import ua.lviv.iot.model.VacancyInfoEntity;
 import ua.lviv.iot.transformer.Transformer;
 

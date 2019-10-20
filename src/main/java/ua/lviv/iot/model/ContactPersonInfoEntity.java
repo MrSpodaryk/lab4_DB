@@ -16,18 +16,18 @@ public class ContactPersonInfoEntity {
     @Column(name = "surname")
     private String surname;
     @Column(name = "age")
-    private int age;
+    private Integer age;
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private Integer phoneNumber;
     @Column(name = "email")
     private String email;
     @Column(name = "it_company_info_id")
-    private int itCompanyInfoId;
+    private Integer itCompanyInfoId;
 
     public ContactPersonInfoEntity() {
     }
 
-    public ContactPersonInfoEntity(Integer id, String name, String surname, int age, int phoneNumber, String email, int itCompanyInfoId) {
+    public ContactPersonInfoEntity(Integer id, String name, String surname, Integer age, Integer phoneNumber, String email, Integer itCompanyInfoId) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -61,19 +61,19 @@ public class ContactPersonInfoEntity {
         this.surname = surname;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -85,24 +85,16 @@ public class ContactPersonInfoEntity {
         this.email = email;
     }
 
-    public int getItCompanyInfoId() {
+    public Integer getItCompanyInfoId() {
         return itCompanyInfoId;
     }
 
-    public void setItCompanyInfoId(int itCompanyInfoId) {
+    public void setItCompanyInfoId(Integer itCompanyInfoId) {
         this.itCompanyInfoId = itCompanyInfoId;
     }
 
     @Override
     public String toString() {
-        return "ContactPersonInfoEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                ", itCompanyInfoId=" + itCompanyInfoId +
-                '}';
+        return String.format("%-7d %-15s %-15s %-15d %-15d %-30s %-5d", id, name, surname, age, phoneNumber, email, itCompanyInfoId);
     }
 }

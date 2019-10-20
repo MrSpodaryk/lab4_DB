@@ -2,7 +2,6 @@ package ua.lviv.iot.DAO.implementation;
 
 import ua.lviv.iot.DAO.UserInfoDAO;
 import ua.lviv.iot.connectionProperty.ConnectionManager;
-import ua.lviv.iot.model.TechnicalLevelEntity;
 import ua.lviv.iot.model.UserInfoEntity;
 import ua.lviv.iot.transformer.Transformer;
 

@@ -2,7 +2,6 @@ package ua.lviv.iot.DAO.implementation;
 
 import ua.lviv.iot.DAO.LevelOfExperienceDAO;
 import ua.lviv.iot.connectionProperty.ConnectionManager;
-import ua.lviv.iot.model.LanguageEntity;
 import ua.lviv.iot.model.LevelOfExperienceEntity;
 import ua.lviv.iot.transformer.Transformer;
 

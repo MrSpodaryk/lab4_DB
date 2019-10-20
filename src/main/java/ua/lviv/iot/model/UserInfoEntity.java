@@ -4,8 +4,6 @@ import ua.lviv.iot.model.annotation.Column;
 import ua.lviv.iot.model.annotation.PrimaryKey;
 import ua.lviv.iot.model.annotation.Table;
 
-import java.sql.Date;
-
 @Table(name = "user_info")
 public class UserInfoEntity {
 
@@ -17,23 +15,23 @@ public class UserInfoEntity {
     @Column(name = "surname")
     private String surname;
     @Column(name = "age")
-    private int age;
+    private Integer age;
     @Column(name = "technical_level_id")
-    private int technicalLevelId;
+    private Integer technicalLevelId;
     @Column(name = "level_of_experience_id")
-    private int LevelOfExperienceId;
+    private Integer levelOfExperienceId;
 
     public UserInfoEntity() {
     }
 
-    public UserInfoEntity(Integer id, String name, String surname, int age, int technicalLevelId,
-                          int levelOfExperienceId) {
+    public UserInfoEntity(Integer id, String name, String surname, Integer age, Integer technicalLevelId,
+                          Integer levelOfExperienceId) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.technicalLevelId = technicalLevelId;
-        LevelOfExperienceId = levelOfExperienceId;
+        this.levelOfExperienceId = levelOfExperienceId;
     }
 
     public Integer getId() {
@@ -60,39 +58,33 @@ public class UserInfoEntity {
         this.surname = surname;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getTechnicalLevelId() {
+    public Integer getTechnicalLevelId() {
         return technicalLevelId;
     }
 
-    public void setTechnicalLevelId(int technicalLevelId) {
+    public void setTechnicalLevelId(Integer technicalLevelId) {
         this.technicalLevelId = technicalLevelId;
     }
 
-    public int getLevelOfExperienceId() {
-        return LevelOfExperienceId;
+    public Integer getLevelOfExperienceId() {
+        return levelOfExperienceId;
     }
 
-    public void setLevelOfExperienceId(int levelOfExperienceId) {
-        LevelOfExperienceId = levelOfExperienceId;
+    public void setLevelOfExperienceId(Integer levelOfExperienceId) {
+        levelOfExperienceId = levelOfExperienceId;
     }
 
     @Override
     public String toString() {
-        return "UserInfoEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", technicalLevelId=" + technicalLevelId +
-                ", LevelOfExperienceId=" + LevelOfExperienceId +
-                '}';
+        return String.format("%-7d %-15s %-15s %-7d %-7d %-7d", id, name, surname, age, technicalLevelId,
+                levelOfExperienceId);
     }
 }

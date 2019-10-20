@@ -2,12 +2,10 @@ package ua.lviv.iot.DAO.implementation;
 
 import ua.lviv.iot.DAO.VacancyInfoHasUserInfoDAO;
 import ua.lviv.iot.connectionProperty.ConnectionManager;
-import ua.lviv.iot.model.VacancyInfoEntity;
 import ua.lviv.iot.model.VacancyInfoHasUserInfoEntity;
 import ua.lviv.iot.transformer.Transformer;
 
 import java.sql.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

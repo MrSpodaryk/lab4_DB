@@ -39,9 +39,6 @@ public class ItCompanyInfoEntity {
 
     @Override
     public String toString() {
-        return "ItCompanyInfoEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return String.format("%-7d %-15s", id, name);
     }
 }

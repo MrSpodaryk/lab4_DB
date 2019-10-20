@@ -39,9 +39,6 @@ public class TechnicalLevelEntity {
 
     @Override
     public String toString() {
-        return "TechnicalLevelEntity{" +
-                "id=" + id +
-                ", level='" + level + '\'' +
-                '}';
+        return String.format("%-7d %-15s", id, level);
     }
 }

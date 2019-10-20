@@ -39,9 +39,6 @@ public class LevelOfExperienceEntity {
 
     @Override
     public String toString() {
-        return "LevelOfExperienceEntity{" +
-                "id=" + id +
-                ", level='" + level + '\'' +
-                '}';
+        return String.format("%-7d %-15s", id, level);
     }
 }

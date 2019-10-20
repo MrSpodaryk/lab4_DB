@@ -1,8 +1,6 @@
 package ua.lviv.iot.service;
 
-import ua.lviv.iot.DAO.implementation.CandidateLevelDAOImpl;
 import ua.lviv.iot.DAO.implementation.LanguageDAOImpl;
-import ua.lviv.iot.model.CandidateLevelEntity;
 import ua.lviv.iot.model.LanguageEntity;
 
 import java.sql.SQLException;

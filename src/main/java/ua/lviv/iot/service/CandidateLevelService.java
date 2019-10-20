@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CandidateLevelService {
 
-    public List<CandidateLevelEntity> findAll() throws SQLException {
+    public static List<CandidateLevelEntity> findAll() throws SQLException {
         return new CandidateLevelDAOImpl().findAll();
     }
 

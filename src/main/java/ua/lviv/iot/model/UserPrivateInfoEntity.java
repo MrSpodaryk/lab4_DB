@@ -50,10 +50,6 @@ public class UserPrivateInfoEntity {
 
     @Override
     public String toString() {
-        return "UserPrivateInfoEntity{" +
-                "userInfoId=" + userInfoId +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return String.format("%-7d %-15s %-15s", userInfoId, login, password);
     }
 }

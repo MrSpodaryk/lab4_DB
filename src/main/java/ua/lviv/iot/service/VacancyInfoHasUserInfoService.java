@@ -1,6 +1,5 @@
 package ua.lviv.iot.service;
 
-import ua.lviv.iot.DAO.implementation.CandidateLevelDAOImpl;
 import ua.lviv.iot.DAO.implementation.VacancyInfoHasUserInfoDAOImpl;
 import ua.lviv.iot.model.VacancyInfoHasUserInfoEntity;
 

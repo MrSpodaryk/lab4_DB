@@ -12,18 +12,18 @@ public class VacancyInfoHasUserInfoEntity {
     private Integer vacancyInfoId;
     @PrimaryKey
     @Column(name = "user_info_id")
-    private int userInfoId;
+    private Integer userInfoId;
     @Column(name = "comment")
     private String comment;
     @Column(name = "approve")
     private boolean approve;
     @Column(name = "candidate_level_id")
-    private int candidateLevelId;
+    private Integer candidateLevelId;
 
     public VacancyInfoHasUserInfoEntity() {
     }
 
-    public VacancyInfoHasUserInfoEntity(Integer vacancyInfoId, int userInfoId, String comment, boolean approve, int candidateLevelId) {
+    public VacancyInfoHasUserInfoEntity(Integer vacancyInfoId, Integer userInfoId, String comment, boolean approve, Integer candidateLevelId) {
         this.vacancyInfoId = vacancyInfoId;
         this.userInfoId = userInfoId;
         this.comment = comment;
@@ -39,11 +39,11 @@ public class VacancyInfoHasUserInfoEntity {
         this.vacancyInfoId = vacancyInfoId;
     }
 
-    public int getUserInfoId() {
+    public Integer getUserInfoId() {
         return userInfoId;
     }
 
-    public void setUserInfoId(int userInfoId) {
+    public void setUserInfoId(Integer userInfoId) {
         this.userInfoId = userInfoId;
     }
 
@@ -63,22 +63,17 @@ public class VacancyInfoHasUserInfoEntity {
         this.approve = approve;
     }
 
-    public int getCandidateLevelId() {
+    public Integer getCandidateLevelId() {
         return candidateLevelId;
     }
 
-    public void setCandidateLevelId(int candidateLevelId) {
+    public void setCandidateLevelId(Integer candidateLevelId) {
         this.candidateLevelId = candidateLevelId;
     }
 
     @Override
     public String toString() {
-        return "VacancyInfoHasUserInfoEntity{" +
-                "vacancyInfoId=" + vacancyInfoId +
-                ", userInfoId=" + userInfoId +
-                ", comment='" + comment + '\'' +
-                ", approve=" + approve +
-                ", candidateLevelId=" + candidateLevelId +
-                '}';
+        return String.format("%-7d %-7d %-20s %-7d %-7d", vacancyInfoId, userInfoId, comment, approve,
+                candidateLevelId);
     }
 }

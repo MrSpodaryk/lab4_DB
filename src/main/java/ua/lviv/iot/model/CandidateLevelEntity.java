@@ -39,9 +39,6 @@ public class CandidateLevelEntity {
 
     @Override
     public String toString() {
-        return "CandidateLevelEntity{" +
-                "id=" + id +
-                ", level='" + level + '\'' +
-                '}';
+        return String.format("%-7d %-15s", id, level);
     }
 }

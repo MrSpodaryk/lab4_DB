@@ -15,16 +15,16 @@ public class VacancyInfoEntity {
     @Column(name = "project_name")
     private String projectName;
     @Column(name = "it_company_info_id")
-    private int itCompanyInfoId;
+    private Integer itCompanyInfoId;
     @Column(name = "language_id")
-    private int languageId;
+    private Integer languageId;
     @Column(name = "level_of_experience_id")
-    private int levelOfExperienceId;
+    private Integer levelOfExperienceId;
 
     public VacancyInfoEntity() {
     }
 
-    public VacancyInfoEntity(Integer id, String description, String projectName, int itCompanyInfoId, int languageId, int levelOfExperienceId) {
+    public VacancyInfoEntity(Integer id, String description, String projectName, Integer itCompanyInfoId, Integer languageId, Integer levelOfExperienceId) {
         this.id = id;
         this.description = description;
         this.projectName = projectName;
@@ -57,39 +57,33 @@ public class VacancyInfoEntity {
         this.projectName = projectName;
     }
 
-    public int getItCompanyInfoId() {
+    public Integer getItCompanyInfoId() {
         return itCompanyInfoId;
     }
 
-    public void setItCompanyInfoId(int itCompanyInfoId) {
+    public void setItCompanyInfoId(Integer itCompanyInfoId) {
         this.itCompanyInfoId = itCompanyInfoId;
     }
 
-    public int getLanguageId() {
+    public Integer getLanguageId() {
         return languageId;
     }
 
-    public void setLanguageId(int languageId) {
+    public void setLanguageId(Integer languageId) {
         this.languageId = languageId;
     }
 
-    public int getLevelOfExperienceId() {
+    public Integer getLevelOfExperienceId() {
         return levelOfExperienceId;
     }
 
-    public void setLevelOfExperienceId(int levelOfExperienceId) {
+    public void setLevelOfExperienceId(Integer levelOfExperienceId) {
         this.levelOfExperienceId = levelOfExperienceId;
     }
 
     @Override
     public String toString() {
-        return "VacancyInfoEntity{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", projectName='" + projectName + '\'' +
-                ", itCompanyInfoId=" + itCompanyInfoId +
-                ", languageId=" + languageId +
-                ", levelOfExperienceId=" + levelOfExperienceId +
-                '}';
+        return String.format("%-7d %-20s %-15s %-7d %-7d %-7d", id, description, projectName, itCompanyInfoId,
+                languageId, levelOfExperienceId);
     }
 }

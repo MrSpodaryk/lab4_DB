@@ -39,9 +39,6 @@ public class LanguageEntity {
 
     @Override
     public String toString() {
-        return "LanguageEntity{" +
-                "id=" + id +
-                ", language='" + language + '\'' +
-                '}';
+        return String.format("%-7d %-15s", id, language);
     }
 }
