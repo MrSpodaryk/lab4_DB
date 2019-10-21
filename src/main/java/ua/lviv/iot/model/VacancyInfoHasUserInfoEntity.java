@@ -23,6 +23,13 @@ public class VacancyInfoHasUserInfoEntity {
     public VacancyInfoHasUserInfoEntity() {
     }
 
+    public VacancyInfoHasUserInfoEntity(Integer userInfoId, String comment, boolean approve, Integer candidateLevelId) {
+        this.userInfoId = userInfoId;
+        this.comment = comment;
+        this.approve = approve;
+        this.candidateLevelId = candidateLevelId;
+    }
+
     public VacancyInfoHasUserInfoEntity(Integer vacancyInfoId, Integer userInfoId, String comment, boolean approve, Integer candidateLevelId) {
         this.vacancyInfoId = vacancyInfoId;
         this.userInfoId = userInfoId;

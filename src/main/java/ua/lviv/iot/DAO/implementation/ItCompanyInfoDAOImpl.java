@@ -13,7 +13,7 @@ public class ItCompanyInfoDAOImpl implements ItCompanyInfoDAO {
 
     private static final String FIND_ALL = "SELECT * FROM it_company_info";
     private static final String DELETE = "DELETE FROM it_company_info WHERE id=?";
-    private static final String CREATE = "INSERT it_company_info (id, name) VALUES (?, ?)";
+    private static final String CREATE = "INSERT it_company_info (name) VALUES (?)";
     private static final String UPDATE = "UPDATE it_company_info SET name=? WHERE id=?";
     private static final String FIND_BY_ID = "SELECT * FROM it_company_info WHERE id=?";
 
@@ -51,8 +51,7 @@ public class ItCompanyInfoDAOImpl implements ItCompanyInfoDAO {
     public int create(ItCompanyInfoEntity entity) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(CREATE)) {
-            ps.setInt(1, entity.getId());
-            ps.setString(2, entity.getName());
+            ps.setString(1, entity.getName());
             return ps.executeUpdate();
         }
     }

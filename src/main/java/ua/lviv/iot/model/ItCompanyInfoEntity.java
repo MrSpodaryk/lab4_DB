@@ -16,6 +16,10 @@ public class ItCompanyInfoEntity {
     public ItCompanyInfoEntity() {
     }
 
+    public ItCompanyInfoEntity(String name) {
+        this.name = name;
+    }
+
     public ItCompanyInfoEntity(Integer id, String name) {
         this.id = id;
         this.name = name;

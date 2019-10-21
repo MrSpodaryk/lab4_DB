@@ -24,6 +24,14 @@ public class UserInfoEntity {
     public UserInfoEntity() {
     }
 
+    public UserInfoEntity(String name, String surname, Integer age, Integer technicalLevelId, Integer levelOfExperienceId) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.technicalLevelId = technicalLevelId;
+        this.levelOfExperienceId = levelOfExperienceId;
+    }
+
     public UserInfoEntity(Integer id, String name, String surname, Integer age, Integer technicalLevelId,
                           Integer levelOfExperienceId) {
         this.id = id;

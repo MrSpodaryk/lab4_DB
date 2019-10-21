@@ -16,6 +16,10 @@ public class TechnicalLevelEntity {
     public TechnicalLevelEntity() {
     }
 
+    public TechnicalLevelEntity(String level) {
+        this.level = level;
+    }
+
     public TechnicalLevelEntity(Integer id, String level) {
         this.id = id;
         this.level = level;

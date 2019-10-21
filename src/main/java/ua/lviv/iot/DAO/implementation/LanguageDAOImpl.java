@@ -13,7 +13,7 @@ public class LanguageDAOImpl implements LanguageDAO {
 
     private static final String FIND_ALL = "SELECT * FROM language";
     private static final String DELETE = "DELETE FROM language WHERE id=?";
-    private static final String CREATE = "INSERT language (id, language) VALUES (?, ?)";
+    private static final String CREATE = "INSERT language (language) VALUES (?)";
     private static final String UPDATE = "UPDATE language SET language=? WHERE id=?";
     private static final String FIND_BY_ID = "SELECT * FROM language WHERE id=?";
 
@@ -51,8 +51,7 @@ public class LanguageDAOImpl implements LanguageDAO {
     public int create(LanguageEntity entity) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(CREATE)) {
-            ps.setInt(1, entity.getId());
-            ps.setString(2, entity.getLanguage());
+            ps.setString(1, entity.getLanguage());
             return ps.executeUpdate();
         }
     }

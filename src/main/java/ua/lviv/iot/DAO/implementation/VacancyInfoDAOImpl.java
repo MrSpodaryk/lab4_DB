@@ -13,8 +13,8 @@ public class VacancyInfoDAOImpl implements VacancyInfoDAO {
 
     private static final String FIND_ALL = "SELECT * FROM vacancy_info";
     private static final String DELETE = "DELETE FROM vacancy_info WHERE id=?";
-    private static final String CREATE = "INSERT vacancy_info (id, description, project_name, it_company_info_id, " +
-            "language_id, level_of_experience_id) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String CREATE = "INSERT vacancy_info (description, project_name, it_company_info_id, " +
+            "language_id, level_of_experience_id) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE vacancy_info SET description=?, project_name=?, it_company_info_id=?, language_id=?, level_of_experience_id=? WHERE id=?";
     private static final String FIND_BY_ID = "SELECT * FROM vacancy_info WHERE id=?";
 
@@ -52,12 +52,11 @@ public class VacancyInfoDAOImpl implements VacancyInfoDAO {
     public int create(VacancyInfoEntity entity) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(CREATE)) {
-            ps.setInt(1, entity.getId());
-            ps.setString(2, entity.getDescription());
-            ps.setString(3, entity.getProjectName());
-            ps.setInt(4, entity.getItCompanyInfoId());
-            ps.setInt(5, entity.getLanguageId());
-            ps.setInt(6, entity.getLevelOfExperienceId());
+            ps.setString(1, entity.getDescription());
+            ps.setString(2, entity.getProjectName());
+            ps.setInt(3, entity.getItCompanyInfoId());
+            ps.setInt(4, entity.getLanguageId());
+            ps.setInt(5, entity.getLevelOfExperienceId());
             return ps.executeUpdate();
         }
     }

@@ -16,6 +16,10 @@ public class LevelOfExperienceEntity {
     public LevelOfExperienceEntity() {
     }
 
+    public LevelOfExperienceEntity(String level) {
+        this.level = level;
+    }
+
     public LevelOfExperienceEntity(Integer id, String level) {
         this.id = id;
         this.level = level;

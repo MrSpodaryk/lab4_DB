@@ -13,7 +13,7 @@ import java.util.List;
 public class ContactPersonInfoDAOImpl implements ContactPersonInfoDAO {
     private static final String FIND_ALL = "SELECT * FROM contact_person_info";
     private static final String DELETE = "DELETE FROM contact_person_info WHERE id=?";
-    private static final String CREATE = "INSERT contact_person_info (id, name, surname, age, phone_number, email, it_company_info_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String CREATE = "INSERT contact_person_info (name, surname, age, phone_number, email, it_company_info_id) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE contact_person_info SET name=?, surname=?, age=?, phone_number=?, email=?, it_company_info_id=? WHERE id=?";
     private static final String FIND_BY_ID = "SELECT * FROM contact_person_info WHERE id=?";
 
@@ -51,13 +51,12 @@ public class ContactPersonInfoDAOImpl implements ContactPersonInfoDAO {
     public int create(ContactPersonInfoEntity entity) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(CREATE)) {
-            ps.setInt(1, entity.getId());
-            ps.setString(2, entity.getName());
-            ps.setString(3, entity.getSurname());
-            ps.setInt(4, entity.getAge());
-            ps.setInt(5, entity.getPhoneNumber());
-            ps.setString(6, entity.getEmail());
-            ps.setInt(7, entity.getItCompanyInfoId());
+            ps.setString(1, entity.getName());
+            ps.setString(2, entity.getSurname());
+            ps.setInt(3, entity.getAge());
+            ps.setInt(4, entity.getPhoneNumber());
+            ps.setString(5, entity.getEmail());
+            ps.setInt(6, entity.getItCompanyInfoId());
             return ps.executeUpdate();
         }
     }

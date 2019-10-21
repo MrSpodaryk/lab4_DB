@@ -13,7 +13,7 @@ public class CandidateLevelDAOImpl implements CandidateLevelDAO {
 
     private static final String FIND_ALL = "SELECT * FROM candidate_level";
     private static final String DELETE = "DELETE FROM candidate_level WHERE id=?";
-    private static final String CREATE = "INSERT candidate_level (id, level) VALUES (?, ?)";
+    private static final String CREATE = "INSERT candidate_level (level) VALUES (?)";
     private static final String UPDATE = "UPDATE candidate_level SET level=? WHERE id=?";
     private static final String FIND_BY_ID = "SELECT * FROM candidate_level WHERE id=?";
 
@@ -51,8 +51,7 @@ public class CandidateLevelDAOImpl implements CandidateLevelDAO {
     public int create(CandidateLevelEntity entity) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(CREATE)) {
-            ps.setInt(1, entity.getId());
-            ps.setString(2, entity.getLevel());
+            ps.setString(1, entity.getLevel());
             return ps.executeUpdate();
         }
     }

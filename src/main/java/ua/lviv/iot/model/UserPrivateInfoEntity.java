@@ -18,6 +18,11 @@ public class UserPrivateInfoEntity {
     public UserPrivateInfoEntity() {
     }
 
+    public UserPrivateInfoEntity(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public UserPrivateInfoEntity(Integer userInfoId, String login, String password) {
         this.userInfoId = userInfoId;
         this.login = login;

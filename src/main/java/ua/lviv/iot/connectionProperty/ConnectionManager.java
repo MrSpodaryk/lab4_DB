@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionManager {
-    private static final String url = "jdbc:mysql://localhost:3306/sample?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
+    private static final String url = "jdbc:mysql://localhost:3306/Spodaryk_db?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
     private static final String user = "root";
     private static final String password = "root";
 

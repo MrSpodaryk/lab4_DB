@@ -13,7 +13,7 @@ public class UserPrivateInfoDAOImpl implements UserPrivateInfoDAO {
 
     private static final String FIND_ALL = "SELECT * FROM user_private_info";
     private static final String DELETE = "DELETE FROM user_private_info WHERE user_info_id=?";
-    private static final String CREATE = "INSERT user_private_info (user_info_id, login, password) VALUES (?, ?, ?)";
+    private static final String CREATE = "INSERT user_private_info (login, password) VALUES (?, ?, ?)";
     private static final String UPDATE = "UPDATE user_private_info SET login=?, password=? WHERE user_info_id=?";
     private static final String FIND_BY_ID = "SELECT * FROM user_private_info WHERE user_info_id=?";
 
@@ -51,9 +51,8 @@ public class UserPrivateInfoDAOImpl implements UserPrivateInfoDAO {
     public int create(UserPrivateInfoEntity entity) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(CREATE)) {
-            ps.setInt(1, entity.getUserInfoId());
-            ps.setString(2, entity.getLogin());
-            ps.setString(3, entity.getPassword());
+            ps.setString(1, entity.getLogin());
+            ps.setString(2, entity.getPassword());
             return ps.executeUpdate();
         }
     }

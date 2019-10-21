@@ -194,8 +194,10 @@ public class MyView {
     }
 
     private void createForCandidateLevel() throws SQLException {
+        System.out.println("Input level for CandidateLevel: ");
+        String level = input.next();
         CandidateLevelService service = new CandidateLevelService();
-        service.create(inputForCandidateLevel());
+        service.create(new CandidateLevelEntity(level));
         Success();
     }
 
@@ -233,8 +235,6 @@ public class MyView {
     /*-----ContactPersonInfo-------------------------------------------------------------------------------------*/
 
     private static ContactPersonInfoEntity inputForContactPersonInfoEntity() {
-        System.out.println("Input ID for ContactPersonInfo: ");
-        Integer id = input.nextInt();
         System.out.println("Input name for ContactPersonInfo: ");
         String name = input.next();
         System.out.println("Input surname for ContactPersonInfo: ");
@@ -247,7 +247,7 @@ public class MyView {
         String email = input.next();
         System.out.println("Input itCompanyInfoId for ContactPersonInfo: ");
         Integer itCompanyInfoId = input.nextInt();
-        return new ContactPersonInfoEntity(id, name, surname, age, phoneNumber,
+        return new ContactPersonInfoEntity(name, surname, age, phoneNumber,
                 email, itCompanyInfoId);
     }
 
@@ -258,8 +258,12 @@ public class MyView {
     }
 
     private void updateContactPersonInfo() throws SQLException {
+        System.out.println("Input ID for ContactPersonInfo: ");
+        Integer id = input.nextInt();
         ContactPersonInfoService service = new ContactPersonInfoService();
-        service.create(inputForContactPersonInfoEntity());
+        ContactPersonInfoEntity entity = inputForContactPersonInfoEntity();
+        entity.setId(id);
+        service.update(entity);
         Success();
     }
 
@@ -303,11 +307,9 @@ public class MyView {
     /*----ItCompanyInfo------------------------------------------------------------------------------------------*/
 
     private static ItCompanyInfoEntity inputForItCompanyInfoEntity() {
-        System.out.println("Input ID for ItCompanyInfo: ");
-        Integer id = input.nextInt();
         System.out.println("Input name for ItCompanyInfo: ");
         String name = input.next();
-        return new ItCompanyInfoEntity(id, name);
+        return new ItCompanyInfoEntity(name);
     }
 
     private void createForItCompanyInfo() throws SQLException {
@@ -317,8 +319,12 @@ public class MyView {
     }
 
     private void updateItCompanyInfo() throws SQLException {
+        System.out.println("Input ID for ItCompanyInfo: ");
+        Integer id = input.nextInt();
+        ItCompanyInfoEntity itCompanyInfoEntity = inputForItCompanyInfoEntity();
+        itCompanyInfoEntity.setId(id);
         ItCompanyInfoService service = new ItCompanyInfoService();
-        service.create(inputForItCompanyInfoEntity());
+        service.create(itCompanyInfoEntity);
         Success();
     }
 
@@ -352,11 +358,9 @@ public class MyView {
     /*----Language----------------------------------------------------------------------------------------------*/
 
     private static LanguageEntity inputForLanguageEntity() {
-        System.out.println("Input ID for Language: ");
-        Integer id = input.nextInt();
         System.out.println("Input language for Language: ");
         String name = input.next();
-        return new LanguageEntity(id, name);
+        return new LanguageEntity(name);
     }
 
     private void createForLanguage() throws SQLException {
@@ -366,8 +370,12 @@ public class MyView {
     }
 
     private void updateLanguage() throws SQLException {
+        System.out.println("Input ID for Language: ");
+        Integer id = input.nextInt();
+        LanguageEntity languageEntity = inputForLanguageEntity();
+        languageEntity.setId(id);
         LanguageService service = new LanguageService();
-        service.create(inputForLanguageEntity());
+        service.update(languageEntity);
         Success();
     }
 
@@ -401,11 +409,9 @@ public class MyView {
     /*-----LevelOfExperience-------------------------------------------------------------------------------------*/
 
     private static LevelOfExperienceEntity inputForLevelOfExperience() {
-        System.out.println("Input ID for LevelOfExperience: ");
-        Integer id = input.nextInt();
         System.out.println("Input level for LevelOfExperience: ");
         String level = input.next();
-        return new LevelOfExperienceEntity(id, level);
+        return new LevelOfExperienceEntity(level);
     }
 
     private void createForLevelOfExperience() throws SQLException {
@@ -415,8 +421,12 @@ public class MyView {
     }
 
     private void updateLevelOfExperience() throws SQLException {
+        System.out.println("Input ID for LevelOfExperience: ");
+        Integer id = input.nextInt();
+        LevelOfExperienceEntity levelOfExperienceEntity = inputForLevelOfExperience();
+        levelOfExperienceEntity.setId(id);
         LevelOfExperienceService service = new LevelOfExperienceService();
-        service.update(inputForLevelOfExperience());
+        service.update(levelOfExperienceEntity);
         Success();
     }
 
@@ -451,11 +461,9 @@ public class MyView {
     /*-----TechnicalLevel-------------------------------------------------------------------------------------*/
 
     private static TechnicalLevelEntity inputForTechnicalLevel() {
-        System.out.println("Input ID for TechnicalLevel: ");
-        Integer id = input.nextInt();
         System.out.println("Input level for TechnicalLevel: ");
         String level = input.next();
-        return new TechnicalLevelEntity(id, level);
+        return new TechnicalLevelEntity(level);
     }
 
     private void createForTechnicalLevel() throws SQLException {
@@ -465,8 +473,12 @@ public class MyView {
     }
 
     private void updateTechnicalLevel() throws SQLException {
+        System.out.println("Input ID for TechnicalLevel: ");
+        Integer id = input.nextInt();
+        TechnicalLevelEntity technicalLevelEntity = inputForTechnicalLevel();
+        technicalLevelEntity.setId(id);
         TechnicalLevelService service = new TechnicalLevelService();
-        service.update(inputForTechnicalLevel());
+        service.update(technicalLevelEntity);
         Success();
     }
 
@@ -500,8 +512,6 @@ public class MyView {
     /*-----UserInfo----------------------------------------------------------------------------------------------*/
 
     private static UserInfoEntity inputForUserInfoEntity() {
-        System.out.println("Input ID for UserInfo: ");
-        Integer id = input.nextInt();
         System.out.println("Input name for UserInfo: ");
         String name = input.next();
         System.out.println("Input surname for UserInfo: ");
@@ -512,19 +522,23 @@ public class MyView {
         Integer technicalLevelId = input.nextInt();
         System.out.println("Input levelOfExperienceId for UserInfo: ");
         Integer levelOfExperienceId = input.nextInt();
-        return new UserInfoEntity(id, name, surname, age, technicalLevelId,
+        return new UserInfoEntity(name, surname, age, technicalLevelId,
                 levelOfExperienceId);
     }
 
     private void createForUserInfo() throws SQLException {
         UserInfoService service = new UserInfoService();
         service.create(inputForUserInfoEntity());
-        Success();
+        createForUserPrivateInfo();
     }
 
     private void updateUserInfo() throws SQLException {
+        System.out.println("Input ID for UserInfo: ");
+        Integer id = input.nextInt();
+        UserInfoEntity userInfoEntity = inputForUserInfoEntity();
+        userInfoEntity.setId(id);
         UserInfoService service = new UserInfoService();
-        service.create(inputForUserInfoEntity());
+        service.update(userInfoEntity);
         Success();
     }
 
@@ -555,16 +569,14 @@ public class MyView {
         Success();
     }
 
-    /*-----UserInfo-----------------------------------------------------------------------------------------------*/
+    /*-----UserPrivateInfo-----------------------------------------------------------------------------------------------*/
 
     private static UserPrivateInfoEntity inputForUserPrivateInfoEntity() {
-        System.out.println("Input user_info_id for UserPrivateInfo: ");
-        Integer UserPrivateInfoId = input.nextInt();
         System.out.println("Input login for UserPrivateInfo: ");
         String login = input.next();
         System.out.println("Input password for UserPrivateInfo: ");
         String password = input.next();
-        return new UserPrivateInfoEntity(UserPrivateInfoId, login, password);
+        return new UserPrivateInfoEntity(login, password);
     }
 
     private void createForUserPrivateInfo() throws SQLException {
@@ -574,8 +586,12 @@ public class MyView {
     }
 
     private void updateUserPrivateInfo() throws SQLException {
+        System.out.println("Input user_info_id for UserPrivateInfo: ");
+        Integer UserPrivateInfoId = input.nextInt();
+        UserPrivateInfoEntity userPrivateInfoEntity = inputForUserPrivateInfoEntity();
+        userPrivateInfoEntity.setUserInfoId(UserPrivateInfoId);
         UserPrivateInfoService service = new UserPrivateInfoService();
-        service.create(inputForUserPrivateInfoEntity());
+        service.update(userPrivateInfoEntity);
         Success();
     }
 
@@ -609,8 +625,6 @@ public class MyView {
     /*-----VacancyInfo--------------------------------------------------------------------------------------*/
 
     private static VacancyInfoEntity inputForVacancyInfoEntity() {
-        System.out.println("Input ID for VacancyInfo: ");
-        Integer id = input.nextInt();
         System.out.println("Input description for VacancyInfo: ");
         String description = input.next();
         System.out.println("Input projectName for VacancyInfo: ");
@@ -621,7 +635,7 @@ public class MyView {
         Integer languageId = input.nextInt();
         System.out.println("Input levelOfExperienceId for VacancyInfo: ");
         Integer levelOfExperienceId = input.nextInt();
-        return new VacancyInfoEntity(id, description, projectName, itCompanyInfoId, languageId,
+        return new VacancyInfoEntity(description, projectName, itCompanyInfoId, languageId,
                 levelOfExperienceId);
     }
 
@@ -632,8 +646,12 @@ public class MyView {
     }
 
     private void updateVacancyInfo() throws SQLException {
+        System.out.println("Input ID for VacancyInfo: ");
+        Integer id = input.nextInt();
+        VacancyInfoEntity vacancyInfoEntity = inputForVacancyInfoEntity();
+        vacancyInfoEntity.setId(id);
         VacancyInfoService service = new VacancyInfoService();
-        service.create(inputForVacancyInfoEntity());
+        service.update(vacancyInfoEntity);
         Success();
     }
 
@@ -688,7 +706,7 @@ public class MyView {
 
     private void updateVacancyInfoHasUserInfo() throws SQLException {
         VacancyInfoHasUserInfoService service = new VacancyInfoHasUserInfoService();
-        service.create(inputForVacancyInfoHasUserInfoEntity());
+        service.update(inputForVacancyInfoHasUserInfoEntity());
         Success();
     }
 

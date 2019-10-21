@@ -4,6 +4,8 @@ import ua.lviv.iot.model.annotation.Column;
 import ua.lviv.iot.model.annotation.PrimaryKey;
 import ua.lviv.iot.model.annotation.Table;
 
+import java.lang.reflect.Type;
+
 @Table(name = "candidate_level")
 public class CandidateLevelEntity {
 
@@ -14,6 +16,10 @@ public class CandidateLevelEntity {
     private String level;
 
     public CandidateLevelEntity() {
+    }
+
+    public CandidateLevelEntity(String level) {
+        this.level = level;
     }
 
     public CandidateLevelEntity(Integer id, String level) {

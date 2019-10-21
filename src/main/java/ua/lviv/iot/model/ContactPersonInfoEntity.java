@@ -27,6 +27,15 @@ public class ContactPersonInfoEntity {
     public ContactPersonInfoEntity() {
     }
 
+    public ContactPersonInfoEntity(String name, String surname, Integer age, Integer phoneNumber, String email, Integer itCompanyInfoId) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.itCompanyInfoId = itCompanyInfoId;
+    }
+
     public ContactPersonInfoEntity(Integer id, String name, String surname, Integer age, Integer phoneNumber, String email, Integer itCompanyInfoId) {
         this.id = id;
         this.name = name;

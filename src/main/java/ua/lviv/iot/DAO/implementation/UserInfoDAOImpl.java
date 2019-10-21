@@ -13,8 +13,8 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 
     private static final String FIND_ALL = "SELECT * FROM user_info";
     private static final String DELETE = "DELETE FROM user_info WHERE id=?";
-    private static final String CREATE = "INSERT user_info (id, name, surname, age, technical_level_id, " +
-            "level_of_experience_id) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String CREATE = "INSERT user_info (name, surname, age, technical_level_id, " +
+            "level_of_experience_id) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE user_info SET name=?, surname=?, age=?, technical_level_id=?," +
             " level_of_experience_id=? WHERE id=?";
     private static final String FIND_BY_ID = "SELECT * FROM user_info WHERE id=?";
@@ -53,12 +53,11 @@ public class UserInfoDAOImpl implements UserInfoDAO {
     public int create(UserInfoEntity entity) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(CREATE)) {
-            ps.setInt(1, entity.getId());
-            ps.setString(2, entity.getName());
-            ps.setString(3, entity.getSurname());
-            ps.setInt(4, entity.getAge());
-            ps.setInt(5, entity.getTechnicalLevelId());
-            ps.setInt(6, entity.getLevelOfExperienceId());
+            ps.setString(1, entity.getName());
+            ps.setString(2, entity.getSurname());
+            ps.setInt(3, entity.getAge());
+            ps.setInt(4, entity.getTechnicalLevelId());
+            ps.setInt(5, entity.getLevelOfExperienceId());
             return ps.executeUpdate();
         }
     }

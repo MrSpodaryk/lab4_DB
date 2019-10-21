@@ -24,6 +24,14 @@ public class VacancyInfoEntity {
     public VacancyInfoEntity() {
     }
 
+    public VacancyInfoEntity(String description, String projectName, Integer itCompanyInfoId, Integer languageId, Integer levelOfExperienceId) {
+        this.description = description;
+        this.projectName = projectName;
+        this.itCompanyInfoId = itCompanyInfoId;
+        this.languageId = languageId;
+        this.levelOfExperienceId = levelOfExperienceId;
+    }
+
     public VacancyInfoEntity(Integer id, String description, String projectName, Integer itCompanyInfoId, Integer languageId, Integer levelOfExperienceId) {
         this.id = id;
         this.description = description;
